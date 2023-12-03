@@ -18,6 +18,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {CategoryService} from "./service/category.service";
 import {NftService} from "./service/nft.service";
 import {UserService} from "./service/user.service";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,10 @@ import {UserService} from "./service/user.service";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [
     NftService,

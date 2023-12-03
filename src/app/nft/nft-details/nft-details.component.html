@@ -9,14 +9,14 @@
           </a>
           <img src="../../../assets/completer.png" width="15px" height="15px" alt="">
         </div>
-        <share-buttons theme="modern-light"
+        <!--<share-buttons theme="modern-light"
                        [include]="['copy']"
                        [showIcon]="true"
                        [showText]="true"
                        url="http://localhost:4200/nfts/{{nft.id}}"
                        description="Bouton partagé Musicart"
                        twitterAccount="Theyozz">
-        </share-buttons>
+        </share-buttons>--->
       </div>
       <h1 class="my-5">{{nft.name}} #{{nft.id}}</h1>
       <div class="d-flex gap-2 mb-5">
@@ -80,7 +80,7 @@
     </div>
   </div>
   <div class="text-white mt-5">
-    <h2 class="text-center mb-5">Plus de cette collection</h2>
+    <h2 class="text-center mb-5">Plus de cette catégorie</h2>
     <div class="d-lg-flex justify-content-center gap-5">
       <div *ngFor="let nft of threeNft">
         <a [routerLink]="['/nfts', nft.id]">
@@ -101,7 +101,7 @@
     </div>
     <div class="text-center mt-4">
       <a [routerLink]="['/collections', nft.category.id]">
-        <button mat-stroked-button>Voir la collection</button>
+        <button mat-stroked-button>Voir la catégorie</button>
       </a>
     </div>
   </div>
