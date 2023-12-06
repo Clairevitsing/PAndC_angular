@@ -1,35 +1,23 @@
-header{
-  background:white;
-  padding: 0;
-  border-bottom: 1px solid blue;
+nav{
+  background-color: #020202ce;
 }
 
 a{
-  color: blue;
+  font-weight: 400;
+  color: grey;
 }
-
-a:hover{
-  background:deepskyblue;
-  color:white;
+.nav-link{
+  border-radius: 10px;
+  padding: 15px;
 }
-
-.container{
-  margin: 0 auto;
-  display:flex;
-  justify-content: space-between;
+.nav-link:hover{
+  color: white;
 }
-
-a.logo{
-  font-weight: bold;
-  padding: 1em;
+.profil_picture{
+  padding: 10px;
 }
-
-nav ul{
-  list-style-type:none;
-  margin:0;
-}
-
-nav ul li a {
-  padding: 1em;
-  display: inline-block;
+.profil_picture:hover {
+  border-radius: 20%;
+  background-color: rgba(255, 255, 255, 0.152);
+  cursor: pointer;
 }
