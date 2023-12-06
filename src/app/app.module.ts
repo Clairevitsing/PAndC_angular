@@ -19,6 +19,11 @@ import {CategoryService} from "./service/category.service";
 import {NftService} from "./service/nft.service";
 import {UserService} from "./service/user.service";
 import {ToastrModule} from "ngx-toastr";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {LoginComponent} from "./login/login.component";
+import { FooterComponent } from './footer/footer.component';
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -32,7 +37,9 @@ import {ToastrModule} from "ngx-toastr";
     UserDetailsComponent,
     AddNftComponent,
     ListNftComponent,
-    NftDetailsComponent
+    NftDetailsComponent,
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,8 @@ import {ToastrModule} from "ngx-toastr";
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
+    NgbModule,
+    FormsModule,
   ],
   providers: [
     NftService,
