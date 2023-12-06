@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {LoginComponent} from "./login/login.component";
 import { FooterComponent } from './footer/footer.component';
 import {FormsModule} from "@angular/forms";
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {FormsModule} from "@angular/forms";
     ListNftComponent,
     NftDetailsComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
