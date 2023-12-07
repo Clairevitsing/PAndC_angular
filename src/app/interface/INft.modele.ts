@@ -9,6 +9,11 @@ export interface INft {
   launchDate: Date,
   launchPriceEur: number,
   launchPriceEth: number,
+  nftPrice: {
+    price_date: Date;
+    price_eth_value: number;
+  };
+  stock: number;
   category: ICategory,
   user: IUser
 }

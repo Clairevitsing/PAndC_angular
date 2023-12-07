@@ -1,0 +1,80 @@
+<section class="container-fluid">
+  <h2 class="text-center fs-4 vitre mx-auto w-50 mb-4">Inscription</h2>
+
+  <form [formGroup]="registerForm" class="row" action="" method="POST" name="form" (ngSubmit)="onSubmit()">
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="emailRegister">Email : </label>
+      <input class="form-control vitre px-3 text-white" type="email" name="emailRegister" id="emailRegister" formControlName="email" required>
+    </div>
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="pseudoRegister">Pseudo : </label>
+      <input class="form-control vitre px-3 text-white" type="text" name="pseudoRegister" id="pseudoRegister" formControlName="pseudo" required>
+    </div>
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="lastnameRegister">Nom : </label>
+      <input class="form-control vitre px-3 text-white" type="text" name="lastnameRegister" id="lastnameRegister" formControlName="lastname" required>
+    </div>
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="firstnameRegister">Prénom : </label>
+      <input class="form-control vitre px-3 text-white" type="text" name="firstnameRegister" id="firstnameRegister" formControlName="firstname" required>
+    </div>
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="passRegister">Password : </label>
+      <input class="form-control vitre px-3 text-white" type="password" name="passRegister" id="passRegister" formControlName="password" required>
+    </div>
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="birthSignUp">Date de naissance : </label>
+      <input class="form-control vitre px-3 text-white" type="date" name="birthSignUp" id="birthSignUp" formControlName="birthdate" required>
+    </div>
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="ZipcodeSignUp">Code Postal : </label>
+      <input class="form-control vitre text-white px-3" type="text" name="ZipcodeSignUp" id="ZipcodeSignUp" formControlName="zipcode" required>
+    </div>
+
+    <div formGroupName="Address" class="mb-4 col-md-6">
+      <label class="text-white" for="streetSignUp">Pays : </label>
+      <input class="form-control vitre text-white px-3" type="text" name="countrySignUp" id="countrySignUp" formControlName="name" required>
+    </div>
+    <div formGroupName="country" class="mb-4 col-md-6">
+      <label class="text-white" for="countrySignUp">Pays : </label>
+      <input class="form-control vitre text-white px-3" type="text" name="countrySignUp" id="countrySignUp" formControlName="name" required>
+    </div>
+    <div formGroupName="country" class="mb-4 col-md-6">
+      <label class="text-white" for="countrySignUp">Pays : </label>
+      <input class="form-control vitre text-white px-3" type="text" name="countrySignUp" id="countrySignUp" formControlName="name" required>
+    </div>
+    <div class="mb-4 col-md-6">
+      <label class="text-white" for="profilPicture">Télécharger une photo de profil :</label>
+      <input type="file" name="profilPicture" id="profilPicture" (change)="onFileSelected($event)" accept="image/*">
+      <img *ngIf="previewImage" [src]="previewImage" alt="Preview" class="img-preview">
+    </div>
+
+    <div class="mb-4 col-md-6">
+      <label class="mb-0">Genre :</label>
+      <div class="mt-0 mb-4 d-flex flex-column vitre p-3 borderblue">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex m-2">
+            <label class="text-white px-3" for="maleGenderSignUp">Homme : </label>
+            <input class="radio w-auto text-white px-3" type="radio" value=1 name="gender" id="maleGenderSignUp" formControlName="gender" required>
+          </div>
+          <div class="d-flex m-2">
+            <label class="text-white px-3" for="femaleGenderSignUp">Femme : </label>
+            <input class="radio w-auto text-white px-3" type="radio" value=2 name="gender" id="femaleGenderSignUp" formControlName="gender" required>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex m-2">
+            <label class="text-white px-3" for="ohterGenderSignUp">Autre : </label>
+            <input class="radio w-auto text-white px-3" type="radio" value=3 name="gender" id="ohterGenderSignUp" formControlName="gender" required>
+          </div>
+          <div class="d-flex m-2">
+            <label class="text-white px-3" for="nonGenderSignUp">Non-rensigné : </label>
+            <input class="radio w-auto text-white px-3" type="radio" value=4 name="gender" id="nonGenderSignUp" formControlName="gender" required>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button [disabled]="!registerForm.valid" type="submit" class="borderAngle p-1 col-3 align-self-center mx-auto">S'inscrire</button>
+  </form>
+</section>

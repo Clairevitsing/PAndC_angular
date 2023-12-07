@@ -24,6 +24,10 @@ import {LoginComponent} from "./login/login.component";
 import { FooterComponent } from './footer/footer.component';
 import {FormsModule} from "@angular/forms";
 import { HomeComponent } from './home/home.component';
+import { CategoryComponent } from './collection/category/category.component';
+import { CollectionComponent } from './collection/collection/collection.component';
+import { NavCategoryComponent } from './collection/nav-category/nav-category.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { HomeComponent } from './home/home.component';
     NftDetailsComponent,
     LoginComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    CategoryComponent,
+    CollectionComponent,
+    NavCategoryComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

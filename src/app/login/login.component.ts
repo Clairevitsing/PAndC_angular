@@ -11,7 +11,7 @@ import {TokenService} from "../service/token.service";
 })
 export class LoginComponent implements OnInit{
   form: ICredentials = {
-    pseudo: "",
+    email: "",
     password: ""
   }
 
@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.form).subscribe(
       data => {
         this.tokenService.saveToken(data.token)
-        this.tokenService.saveUserCredentials(this.form.pseudo);
-        this.toastr.success("Bienvenue " + this.form.pseudo)
+        this.tokenService.saveUserCredentials(this.form.email);
+        this.toastr.success("Connexion réussie ")
       },
-      () =>  this.toastr.error("Utilisateur introuvable")
+      () =>  this.toastr.error("Echec de la connexion, veuillez vérifier vos informations")
     )
   }
 }
