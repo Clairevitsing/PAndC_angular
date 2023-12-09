@@ -28,6 +28,7 @@ import { CategoryComponent } from './collection/category/category.component';
 import { CollectionComponent } from './collection/collection/collection.component';
 import { NavCategoryComponent } from './collection/nav-category/nav-category.component';
 import { RegisterComponent } from './register/register.component';
+import {NgChartsModule} from "ng2-charts";
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { RegisterComponent } from './register/register.component';
     }),
     NgbModule,
     FormsModule,
+    NgChartsModule
   ],
   providers: [
     NftService,

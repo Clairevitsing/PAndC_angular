@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { INft } from '../interface/INft.module';
+import { INft } from '../interface/INft.modele';
 import { NftService } from '../service/nft.service';
 import { EthereumService } from '../service/ethereum.service';
 import { Observable } from 'rxjs';

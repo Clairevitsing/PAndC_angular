@@ -3,8 +3,8 @@
     <form class="form" #f="ngForm" (ngSubmit)="onSubmit()">
       <h4 class="text-white">Se Connecter</h4>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="pseudo" id="pseudo" [(ngModel)]="form.pseudo" placeholder="name@example.com">
-        <label for="pseudo">Pseudo</label>
+        <input type="text" class="form-control" name="email" id="email" [(ngModel)]="form.email" placeholder="name@example.com">
+        <label for="email">Email</label>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control" name="password" id="password" [(ngModel)]="form.password" placeholder="Password" required>
