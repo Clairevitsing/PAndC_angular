@@ -24,7 +24,10 @@ export class NftService {
   getCategory(url: string): Observable<ICategory> {
     return this.http.get<ICategory>(url);
   }
-
+  setNft($id: any, name: string, category: number, description: string, img: string, stock: number): Observable<any>{
+    const credentials = { name, category, description, img, stock };
+    return this.http.post(`${this.baseUrl}/${$id}/edit`, credentials);
+  }
   getNft(id: number): Observable<INft> {
     return this.http.get<INft>(`${this.baseUrl}/${id}`);
   }
