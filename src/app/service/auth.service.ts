@@ -1,19 +1,42 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ICredentials} from "../interface/ICredentials..modele";
-import {IToken} from "../interface/IToken.modele";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
+const AUTH_TOKEN_KEY = 'authToken';
+const USERNAME_KEY = 'username';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  url = 'http://localhost:8000/api/login_check'
+  private apiUrl = 'http://localhost:8000/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
-  login(credential: ICredentials): Observable<IToken>{
-    return this.http.post<IToken>(this.url, credential)
+  login(email: string, password: string): Observable<any> {
+    const credentials = { email, password };
+    return this.http.post<any>(`${this.apiUrl}/login_check`, credentials);
+  }
+
+  register(pseudo: string, email: string, password: string, gender: string, lastname: string, firstname: string, birthDate: Date, adress: number): Observable<any> {
+    const credentials = { pseudo, email, password, gender, lastname, firstname, birthDate, adress };
+    return this.http.post<any>(`${this.apiUrl}/register`, credentials);
+  }
+
+  adressRegister(street: string, code_postal: number, city: string): Observable<any> {
+    const credentials = { street, code_postal, city };
+    return this.http.post<any>(`${this.apiUrl}/adress/new`, credentials);
+  }
+
+  logout(): void {
+    localStorage.removeItem(AUTH_TOKEN_KEY);
+    localStorage.removeItem(USERNAME_KEY);
+    this.router.navigate(['/home']);
+  }
+
+  isLoggedIn(): boolean {
+    const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
+    return !!authToken;
   }
 }

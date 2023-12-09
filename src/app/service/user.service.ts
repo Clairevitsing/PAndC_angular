@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {FormGroup} from "@angular/forms";
+import {IUser} from "../interface/IUser.modele";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class UserService {
 
   //A chaque appels de cette classe, je vais utiliser le contenu du constructor
   constructor(private http: HttpClient) { }
-
+  getUser(id: number): Observable<IUser> {
+    return this.http.get<IUser>(`${this.userUrl}/${id}`);
+  }
   addUser(formData: FormGroup): Observable<any>{
     return this.http.post(this.userUrl, formData.getRawValue());
   }

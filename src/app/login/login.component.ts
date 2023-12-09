@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {}
 
   onSubmit(): void{
-    this.authService.login(this.form).subscribe(
+    this.authService.login(this.form.email, this.form.password).subscribe(
       data => {
         this.tokenService.saveToken(data.token)
         this.tokenService.saveUserCredentials(this.form.email);
