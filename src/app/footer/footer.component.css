@@ -1,17 +1,32 @@
 .site-footer
 {
-  background: linear-gradient(#12161997, #000000);
+  background-color: rgb(1, 5, 9);
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
-  color:#737373;
+  color: #ffffff;
 }
 .site-footer hr
 {
-  border-top-color:#bbb;
+  border-top-color: #ffffff;
   opacity:0.5
 }
-
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color: #ffffff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color: #ffffff;
+}
 .site-footer a:hover
 {
   text-decoration:underline;
@@ -28,7 +43,7 @@
 }
 .footer-links a
 {
-  color:#737373
+  color: #ffffff
 }
 .footer-links.inline li
 {
@@ -46,9 +61,12 @@
   margin-left:6px;
   margin-right:0;
   border-radius:100%;
-  background-color:#33353d
+  background-color: #09278c
 }
-
+.copyright-text
+{
+  margin:0
+}
 @media (max-width:991px)
 {
   .site-footer [class^=col-]
@@ -82,7 +100,7 @@
 {
   margin-right:15px;
   text-transform:uppercase;
-  color:#96a2b2;
+  color: #09278c;
   font-weight:700;
   font-size:13px
 }
@@ -103,7 +121,7 @@
 }
 .social-icons a:active,.social-icons a:focus,.social-icons a:hover
 {
-  color:#fff;
+  color: #0a0a0a;
   background-color:#29aafe
 }
 .social-icons.size-sm a
@@ -133,20 +151,4 @@
     margin-right:0;
     font-weight:600
   }
-}
-
-.logo{
-  font-family: tr2n;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 60px;
-  color: #0064F2;
-  text-shadow: 0.25px 0 #0064F2, -0.5px 0 #02D6F2, 0 0.5px #02D6F2, 0 -0.5px #02D6F2,
-  0.5px 0.5px #02D6F2, -0.5px 0.5px #02D6F2, 0.5px -0.5px #02D6F2, -0.5px 0.5px #02D6F2;;
-}
-
-
-#footer {
-  border-top: 3px solid;
-  border-image: linear-gradient(to right,black, #0064F2, #02D6F2, #0064F2, black) 1;
 }
