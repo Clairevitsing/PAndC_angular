@@ -1,88 +1,42 @@
-import {Component, OnDestroy} from '@angular/core';
-import {Subscription} from "rxjs";
-import {Router} from "@angular/router";
-import {AuthService} from "../service/auth.service";
-import {jwtDecode} from "jwt-decode";
-
-const AUTH_TOKEN_KEY = 'authToken';
-const USERNAME_KEY = 'username';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../service/user.service";
+import {TokenService} from "../service/token.service";
+import {IUser} from "../interface/IUser.modele";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnDestroy{
-  email: string = '';
-  password: string = '';
-  private subscription: Subscription | undefined;
-  isLoggedIn: boolean = false;
-  isAdmin: boolean = false;
-  error: string = '';
+export class HeaderComponent implements OnInit{
+  users: IUser[] = [];
+  user!: IUser;
 
+  constructor(private tokenService: TokenService,  private userService: UserService){}
 
-  constructor(private authService: AuthService,  private router: Router){}
-
-  ngOnInit() {
-    const authToken = localStorage.getItem('authToken');
-    if (authToken){
-      const decodedToken: any = jwtDecode(authToken);
-      if(decodedToken.username){
-        this.isLoggedIn = authToken !== null;
-        if(decodedToken.roles.includes('ROLE_ADMIN')){
-          this.isAdmin = true;
+  ngOnInit(): void  {
+    this.loadUsersAndFindUserByPseudo()
+  }
+  loadUsersAndFindUserByPseudo(): void{
+    this.userService.getAllUsers().subscribe(
+      (users) => {
+        this.users = users['hydra:member'];
+        const pseudo = this.tokenService.getUserPseudo();
+        if (pseudo) {
+          this.user = this.findUserByPseudo(pseudo);
         }
       }
-    }
-    // Délai de 2 heures (en millisecondes)
-    const inactivityTimeout = 2 * 60 * 60 * 1000;
-
-    // Démarre le délai avant la déconnexion
-    const timeoutId = setTimeout(() => {
-      this.logout();
-    }, inactivityTimeout);
+    );
+  }
+  findUserByPseudo(pseudo: string): any {
+    return Object.values(this.users).find(user => user.pseudo === pseudo);
   }
 
-  onSubmit() {
-    this.subscription = this.authService.login(this.email, this.password).subscribe({
-      next: (response) => {
-        if (response && response.token) {
-          this.storeAuthToken(response.token);
-          this.storeEmail(this.email);
-          console.log('Connecté avec succès !');
-
-          window.location.reload();
-        }
-      },
-      error: (error) => {
-        console.error('Erreur lors de la connexion:', error);
-        this.error = "Identifiant inconnu";
-      },
-    });
+  isLoggedIn(): boolean {
+    return this.tokenService.getIsLogged();
   }
 
-  ngOnDestroy() {
-    this.unsubscribe();
+  logout(): void {
+    this.tokenService.clearTokenAndUserInfos()
   }
-
-  private storeAuthToken(token: string) {
-    localStorage.setItem(AUTH_TOKEN_KEY, token);
-  }
-
-  private storeEmail(email: string) {
-    localStorage.setItem(USERNAME_KEY, email);
-  }
-
-  private unsubscribe() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
-  public logout(): void {
-    this.authService.logout();
-    this.isLoggedIn = false;
-    this.isAdmin = false;
-  }
-
 }

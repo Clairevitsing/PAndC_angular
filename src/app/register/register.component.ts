@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
   }
 
   addressRegisterAndRegister() {
-    this.authService.adressRegister(this.street, this.ZIPCode, this.city)
+    this.authService.addressRegister(this.street, this.ZIPCode, this.city,)
       .pipe(
         switchMap((response) => {
           if (response && response.id) {

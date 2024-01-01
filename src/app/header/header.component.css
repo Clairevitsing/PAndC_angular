@@ -1,18 +1,23 @@
-.body{
-  width: 90%;
-  margin: auto;
-}
-/* HEADER */
-.btn1{
-  color: white;
-  background-color: #09278c;
-  max-width: 160px;
-}
-.btn1:hover{
-  box-shadow: inset 0px 2px 5px black;
-  background-color: #09278c;
+nav{
+  background-color: rgb(1, 9, 14);
 }
 
-a:hover{
-  color: #616eff;
+a{
+  font-weight: 400;
+  color: rgba(4, 13, 42, 0.81);
+}
+.nav-link{
+  border-radius: 10px;
+  padding: 15px;
+}
+.nav-link:hover{
+  color: #15a933;
+}
+.profil_picture{
+  padding: 10px;
+}
+.profil_picture:hover {
+  border-radius: 20%;
+  background-color: rgba(255, 255, 255, 0.152);
+  cursor: pointer;
 }

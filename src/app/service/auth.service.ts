@@ -21,12 +21,12 @@ export class AuthService {
 
   register(pseudo: string, email: string, password: string, gender: string, lastname: string, firstname: string, birthDate: Date, adress: number): Observable<any> {
     const credentials = { pseudo, email, password, gender, lastname, firstname, birthDate, adress };
-    return this.http.post<any>(`${this.apiUrl}/register`, credentials);
+    return this.http.post<any>(`${this.apiUrl}/users`, credentials);
   }
 
-  adressRegister(street: string, code_postal: number, city: string): Observable<any> {
-    const credentials = { street, code_postal, city };
-    return this.http.post<any>(`${this.apiUrl}/adress/new`, credentials);
+  addressRegister(street: string, ZIPCode: number, city: string): Observable<any> {
+    const credentials = { street, ZIPCode, city };
+    return this.http.post<any>(`${this.apiUrl}/addresses`, credentials);
   }
 
   logout(): void {

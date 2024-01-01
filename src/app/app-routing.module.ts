@@ -9,8 +9,6 @@ import {NftDetailsComponent} from "./nft/nft-details/nft-details.component";
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
-import {CategoryComponent} from "./collection/category/category.component";
-import {CollectionComponent} from "./collection/collection/collection.component";
 import {HeaderComponent} from "./header/header.component";
 
 const routes: Routes = [
@@ -25,11 +23,7 @@ const routes: Routes = [
   {path:'users/create', component:AddUserComponent},
   {path:'users', component:ListUserComponent},
   {path:'users/:id', component:UserDetailsComponent},
-  {
-    path: "collection", component: CollectionComponent, children: [
-      { path: "category/:id", component: CategoryComponent }
-    ]
-  },
+
 ];
 
 @NgModule({
