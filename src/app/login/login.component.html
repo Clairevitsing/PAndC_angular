@@ -1,20 +1,20 @@
 <section class="container">
   <div class="formulaire col-4 mx-auto form text-center">
     <form class="form" #f="ngForm" (ngSubmit)="onSubmit()">
-      <h4 class="text-white">Se Connecter</h4>
+      <h4 class="text-white">Login</h4>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="email" id="email" [(ngModel)]="form.email" placeholder="name@example.com">
-        <label for="email">Email</label>
+        <input type="text" class="form-control" name="pseudo" id="pseudo" [(ngModel)]="form.pseudo" placeholder="name@example.com">
+        <label for="pseudo">Email</label>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control" name="password" id="password" [(ngModel)]="form.password" placeholder="Password" required>
         <label for="password">Password</label>
       </div>
-      <button class="mt-3" mat-raised-button color="primary" type="submit" class="connexion">Valider</button>
+      <button class="mt-3" mat-raised-button color="primary" type="submit" class="connexion">Submit</button>
       <hr>
     </form>
     <a routerLink="users/create">
-      <button mat-raised-button color="accent" class="inscription">S'inscrire</button>
+      <button mat-raised-button color="accent" class="inscription">Sign up</button>
     </a>
   </div>
 </section>

@@ -11,7 +11,7 @@ import {TokenService} from "../service/token.service";
 })
 export class LoginComponent implements OnInit{
   form: ICredentials = {
-    email: "",
+    pseudo: "",
     password: ""
   }
 
@@ -20,13 +20,13 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {}
 
   onSubmit(): void{
-    this.authService.login(this.form.email, this.form.password).subscribe(
+    this.authService.login(this.form.pseudo, this.form.password).subscribe(
       data => {
         this.tokenService.saveToken(data.token)
-        this.tokenService.saveUserCredentials(this.form.email);
-        this.toastr.success("Connexion réussie ")
+        this.tokenService.saveUserCredentials(this.form.password);
+        this.toastr.success("Welcome " + this.form.pseudo)
       },
-      () =>  this.toastr.error("Echec de la connexion, veuillez vérifier vos informations")
+      () =>  this.toastr.error("Connection failed, please check your information.")
     )
   }
 }
