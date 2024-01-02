@@ -21,10 +21,6 @@ import {LoginComponent} from "./login/login.component";
 import { FooterComponent } from './footer/footer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HomeComponent } from './home/home.component';
-import { CategoryComponent } from './collection/category/category.component';
-import { CollectionComponent } from './collection/collection/collection.component';
-import { NavCategoryComponent } from './collection/nav-category/nav-category.component';
-import { RegisterComponent } from './register/register.component';
 import {NgChartsModule} from "ng2-charts";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
@@ -32,6 +28,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {ShareButtonsModule} from "ngx-sharebuttons/buttons";
+import {ShareIconsModule} from "ngx-sharebuttons/icons";
+import {TokenInterceptorProvider} from "./interceptor/token.interceptor";
 
 
 @NgModule({
@@ -47,10 +45,6 @@ import {ShareButtonsModule} from "ngx-sharebuttons/buttons";
     LoginComponent,
     FooterComponent,
     HomeComponent,
-    CategoryComponent,
-    CollectionComponent,
-    NavCategoryComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,12 +63,11 @@ import {ShareButtonsModule} from "ngx-sharebuttons/buttons";
     MatIconModule,
     ReactiveFormsModule,
     NgChartsModule,
-    ShareButtonsModule
+    ShareButtonsModule,
+    ShareIconsModule,
   ],
   providers: [
-    NftService,
-    CategoryService,
-    UserService
+   TokenInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

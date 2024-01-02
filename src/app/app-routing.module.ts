@@ -8,7 +8,6 @@ import {AddNftComponent} from "./nft/add-nft/add-nft.component";
 import {NftDetailsComponent} from "./nft/nft-details/nft-details.component";
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
 import {HeaderComponent} from "./header/header.component";
 
 const routes: Routes = [
@@ -19,10 +18,10 @@ const routes: Routes = [
   {path:'nfts/create', component:AddNftComponent},
   {path:'nfts', component:ListNftComponent},
   {path:'nfts/:id', component:NftDetailsComponent},
-  { path: "register", component: RegisterComponent },
   {path:'users/create', component:AddUserComponent},
   {path:'users', component:ListUserComponent},
   {path:'users/:id', component:UserDetailsComponent},
+  {path:'categories', component:UserDetailsComponent},
 
 ];
 
