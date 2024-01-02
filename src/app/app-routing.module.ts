@@ -21,7 +21,8 @@ const routes: Routes = [
   {path:'users/create', component:AddUserComponent},
   {path:'users', component:ListUserComponent},
   {path:'users/:id', component:UserDetailsComponent},
-  {path:'categories', component:UserDetailsComponent},
+  {path:'categories', component:ListCategoryComponent},
+  {path:'categories', component:ListCategoryComponent},
 
 ];
 

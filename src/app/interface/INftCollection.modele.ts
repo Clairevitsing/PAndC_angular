@@ -4,7 +4,7 @@ export interface INftCollection {
   id: number,
   name: string;
   description:string;
-  nfts:[
+  nft:[
     {
       id: number;
       name: string;

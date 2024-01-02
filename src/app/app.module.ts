@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,9 +11,6 @@ import { AddNftComponent } from './nft/add-nft/add-nft.component';
 import { ListNftComponent } from './nft/list-nft/list-nft.component';
 import { NftDetailsComponent } from './nft/nft-details/nft-details.component';
 import {NgOptimizedImage} from "@angular/common";
-import {CategoryService} from "./service/category.service";
-import {NftService} from "./service/nft.service";
-import {UserService} from "./service/user.service";
 import {ToastrModule} from "ngx-toastr";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {LoginComponent} from "./login/login.component";
@@ -30,6 +26,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {ShareButtonsModule} from "ngx-sharebuttons/buttons";
 import {ShareIconsModule} from "ngx-sharebuttons/icons";
 import {TokenInterceptorProvider} from "./interceptor/token.interceptor";
+import {CollectionDetailsComponent} from "./collection/collection-details/collection-details.component";
+import {AddCollectionComponent} from "./collection/add-collection/add-collection.component";
+import {ListCollectionComponent} from "./collection/list-collection/list-collection.component";
 
 
 @NgModule({
@@ -42,6 +41,9 @@ import {TokenInterceptorProvider} from "./interceptor/token.interceptor";
     AddNftComponent,
     ListNftComponent,
     NftDetailsComponent,
+    AddCollectionComponent,
+    CollectionDetailsComponent,
+    ListCollectionComponent,
     LoginComponent,
     FooterComponent,
     HomeComponent,

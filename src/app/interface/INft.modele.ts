@@ -1,5 +1,6 @@
 import { ICategory } from "./ICategory.modele";
 import { IUser } from "./IUser.modele";
+import {INftCollection} from "./INftCollection.modele";
 
 export interface INft {
   id: number,
@@ -15,5 +16,6 @@ export interface INft {
   };
   stock: number;
   category: ICategory,
+  collection: INftCollection,
   user: IUser
 }
